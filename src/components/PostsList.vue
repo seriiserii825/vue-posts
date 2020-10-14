@@ -7,7 +7,7 @@
         :index="index"
         @changeLike="changeLike"
         @deletePost="deletePost"
-    ></PostsListItem>
+    />
   </ul>
 </template>
 <script>
@@ -28,11 +28,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-ul {
-  margin: 0 auto;
-  max-width: 600px;
-  list-style-type: none;
-}
-</style>
