@@ -1,28 +1,71 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <h1>Posts</h1>
+
+    <PostsList
+        :posts="posts"
+        @changeLike="changeLike"
+    ></PostsList>
+
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import PostsList from '@/components/PostsList'
 
 export default {
   name: 'App',
+  data () {
+    return {
+      posts: [
+        {
+          id: 1,
+          title: 'New Year',
+          like: false
+        },
+        {
+          id: 2,
+          title: 'Holiday',
+          like: false
+        },
+        {
+          id: 3,
+          title: 'Birth day',
+          like: false
+        }
+      ]
+    }
+  },
+  methods: {
+    changeLike (id) {
+      this.posts.map(item => {
+        if (item.id === id) {
+          item.like = !item.like
+        }
+      })
+    }
+  },
   components: {
-    HelloWorld
+    PostsList
   }
 }
 </script>
 
 <style lang="scss">
+@import "assets/scss/variables.module";
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  color: $app-color;
+  background-color: $app-background-color;
+}
+
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-size: 16px;
   text-align: center;
-  color: #2c3e50;
   margin-top: 60px;
 }
 </style>
