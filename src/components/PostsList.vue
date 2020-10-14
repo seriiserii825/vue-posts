@@ -6,6 +6,7 @@
         :post="post"
         :index="index"
         @changeLike="changeLike"
+        @deletePost="deletePost"
     ></PostsListItem>
   </ul>
 </template>
@@ -17,6 +18,9 @@ export default {
   methods: {
     changeLike (id) {
       this.$emit('changeLike', id)
+    },
+    deletePost (id) {
+      this.$emit('deletePost', id)
     }
   },
   components: {

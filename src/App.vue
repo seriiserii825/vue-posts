@@ -5,6 +5,7 @@
     <PostsList
         :posts="posts"
         @changeLike="changeLike"
+        @deletePost="deletePost"
     ></PostsList>
 
   </div>
@@ -43,6 +44,9 @@ export default {
           item.like = !item.like
         }
       })
+    },
+    deletePost (id) {
+      this.posts = this.posts.filter(item => item.id !== id)
     }
   },
   components: {

@@ -20,17 +20,12 @@
 <script>
 export default {
   props: ['post', 'index'],
-  data () {
-    return {
-      acitveItem: false
-    }
-  },
   methods: {
     changeLike (id) {
       this.$emit('changeLike', id)
     },
     deletePost (id) {
-      console.log(id)
+      this.$emit('deletePost', id)
     }
   }
 }
