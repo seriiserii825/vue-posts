@@ -3,7 +3,7 @@
     <div class="app-wrapper">
       <h1>Posts</h1>
 
-      <AddPost @addNewPost="addNewPost"/>
+      <AddPost/>
 
       <PostsList
           :posts="posts"
@@ -22,23 +22,7 @@ export default {
   name: 'App',
   data () {
     return {
-      posts: [
-        {
-          id: 1,
-          title: 'New Year',
-          like: false
-        },
-        {
-          id: 2,
-          title: 'Holiday',
-          like: false
-        },
-        {
-          id: 3,
-          title: 'Birth day',
-          like: false
-        }
-      ]
+      posts: []
     }
   },
   methods: {
@@ -51,41 +35,36 @@ export default {
     },
     deletePost (id) {
       this.posts = this.posts.filter(item => item.id !== id)
-    },
-    addNewPost (newPost) {
-      this.posts.push(newPost)
     }
   },
   components: {
     PostsList,
     AddPost
+  },
+  created () {
+    this.posts = this.$store.state.posts
   }
 }
 </script>
 
 <style lang="scss">
 @import "assets/scss/variables.module";
-
 * {
   box-sizing: border-box;
 }
-
 body {
   color: $app-color;
   background-color: $app-background-color;
 }
-
 #app {
   font-size: 16px;
   text-align: center;
   margin-top: 60px;
 }
-
 .app-wrapper {
   margin: 0 auto;
   max-width: 600px;
 }
-
 ul {
   margin: 0 auto;
   padding: 0;

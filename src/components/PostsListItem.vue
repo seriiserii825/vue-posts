@@ -34,7 +34,6 @@ export default {
 <style scoped lang="scss">
 
 @import "../assets/scss/variables.module";
-
 li {
   display: flex;
   align-items: center;
@@ -44,23 +43,19 @@ li {
   border-radius: 5px;
   background-color: darken($app-background-color, 2%);
   transition: all .4s;
-
   &.liked {
     svg {
       opacity: 1;
     }
   }
-
   &:hover {
     color: lighten($app-color, 20%);
     background: darken($app-background-color, 5%);
     cursor: pointer;
   }
-
   &:active {
     background: darken($app-background-color, 10%);
   }
-
   strong {
     display: inline-block;
     margin-right: 10px;
@@ -68,7 +63,6 @@ li {
     font-size: 16px;
   }
 }
-
 h2 {
   flex: 1;
   display: flex;
@@ -77,7 +71,6 @@ h2 {
   font-weight: normal;
   font-size: 16px;
 }
-
 svg {
   display: inline-block;
   margin-left: auto;
@@ -87,7 +80,6 @@ svg {
   opacity: 0;
   transition: all .3s;
 }
-
 .close {
   display: flex;
   justify-content: center;
@@ -99,7 +91,6 @@ svg {
   color: $app-color;
   border: 1px solid $app-color;
   transition: all .3s;
-
   &:hover {
     color: white;
     background-color: red;

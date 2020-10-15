@@ -20,7 +20,7 @@ export default {
           title: this.title,
           like: false
         }
-        this.$emit('addNewPost', newPost)
+        this.$store.state.posts.push(newPost)
         this.title = ''
       }
     }
