@@ -22,5 +22,19 @@ export default new Vuex.Store({
         like: false
       }
     ]
+  },
+  mutations: {
+    changeLike (state, id) {
+      state.posts.map(item => {
+        if (item.id === id) {
+          item.like = !item.like
+        }
+      })
+    },
+    deletePost (state, id) {
+      state.posts = state.posts.filter(item => {
+        return item.id !== id
+      })
+    }
   }
 })

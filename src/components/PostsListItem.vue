@@ -22,10 +22,10 @@ export default {
   props: ['post', 'index'],
   methods: {
     changeLike (id) {
-      this.$emit('changeLike', id)
+      this.$store.commit('changeLike', id)
     },
     deletePost (id) {
-      this.$emit('deletePost', id)
+      this.$store.commit('deletePost', id)
     }
   }
 }

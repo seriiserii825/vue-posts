@@ -7,9 +7,7 @@
 
       <PostsList
           :posts="posts"
-          @changeLike="changeLike"
-          @deletePost="deletePost"
-      ></PostsList>
+      />
     </div>
   </div>
 </template>
@@ -20,19 +18,7 @@ import AddPost from '@/components/AddPost'
 
 export default {
   name: 'App',
-  data () {
-    return {
-      posts: []
-    }
-  },
   methods: {
-    changeLike (id) {
-      this.posts.map(item => {
-        if (item.id === id) {
-          item.like = !item.like
-        }
-      })
-    },
     deletePost (id) {
       this.posts = this.posts.filter(item => item.id !== id)
     }
@@ -41,8 +27,10 @@ export default {
     PostsList,
     AddPost
   },
-  created () {
-    this.posts = this.$store.state.posts
+  computed: {
+    posts () {
+      return this.$store.state.posts
+    }
   }
 }
 </script>
